@@ -3,7 +3,7 @@
 async function AutoLogin(hours) {
     async function getTime(url) {
         try {
-            const response = await fetch(url, {
+            let response = await fetch(url, {
                 method: 'get',
                 mode: 'no-cors'
             });
@@ -29,7 +29,6 @@ async function AutoLogin(hours) {
 
         // 오전 10시 이상인지 확인
         if (serverTime.getHours() >= hours) {
-            let loginButton = document.querySelector('#button_login');
             loginButton.click();
             break;
         } else {
